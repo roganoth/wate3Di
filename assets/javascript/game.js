@@ -8,11 +8,11 @@ var triesText = document.getElementById("guessesLeft");
 var wins = 0;
 var losses = 0;
 var cpuChoice;
-// var tries = 9;
-// var guesses = [];
+var tries = 9;
+var guesses = [];
 
 
- console.log(cpuChoice);
+//  console.log(cpuChoice);
 
 
 document.onkeyup = function(event) {
@@ -37,16 +37,17 @@ document.onkeyup = function(event) {
     }
     else {
         tries--;
-        // lowerPcGuess.join(guesses);
+        guesses.push(lowerPcGuess);
         // console.log(tries);
     }
 
     if(tries === 0) {
         losses++;
         startGame()
-        // cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
-        // console.log(letterBox[cpuChoice]);
-        // tries = 9;
+        cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
+        console.log(letterBox[cpuChoice]);
+        tries = 9;
+        guesses.push(lowerPcGuess);
 
     }
     winText.textContent = "Wins: " + wins;
@@ -63,7 +64,8 @@ guessText.textContent = "Guesses you have already made: " + guesses;
 function startGame() {
     cpuChoice = letterBox[Math.floor(Math.random() * letterBox.length)];
     tries = 9;
-    guesses = []
+    guesses = [];
+    console.log(cpuChoice);
 }
 
 startGame()
