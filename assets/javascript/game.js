@@ -26,7 +26,7 @@ document.onkeyup = function(event) {
 
     if(lowerPcGuess === cpuChoice) {
         wins++;
-        console.log(wins); 
+        // console.log(wins); 
         startGame()
 
         // cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
@@ -35,6 +35,10 @@ document.onkeyup = function(event) {
 
                   
     }
+    else if(guesses.includes(lowerPcGuess)) {
+        alert("You've already tried that")
+    }
+    
     else {
         tries--;
         guesses.push(lowerPcGuess);
@@ -44,10 +48,11 @@ document.onkeyup = function(event) {
     if(tries === 0) {
         losses++;
         startGame()
-        cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
+        // cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
         // console.log(letterBox[cpuChoice]);
         tries = 9;
         guesses.push(lowerPcGuess);
+        
 
     }
     winText.textContent = "Wins: " + wins;
