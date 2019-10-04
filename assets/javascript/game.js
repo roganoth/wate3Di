@@ -19,8 +19,8 @@ document.onkeyup = function(event) {
     var pcGuess = event.key;
     var lowerPcGuess = pcGuess.toLowerCase();
     
-    console.log(lowerPcGuess);
-    console.log(cpuChoice);
+    // console.log(lowerPcGuess);
+    // console.log(cpuChoice);
 
 
 
@@ -45,7 +45,7 @@ document.onkeyup = function(event) {
         losses++;
         startGame()
         cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
-        console.log(letterBox[cpuChoice]);
+        // console.log(letterBox[cpuChoice]);
         tries = 9;
         guesses.push(lowerPcGuess);
 
@@ -65,7 +65,7 @@ function startGame() {
     cpuChoice = letterBox[Math.floor(Math.random() * letterBox.length)];
     tries = 9;
     guesses = [];
-    console.log(cpuChoice);
+    // console.log(cpuChoice);
 }
 
 startGame()
