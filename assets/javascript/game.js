@@ -7,10 +7,11 @@ var triesText = document.getElementById("guessesLeft");
 
 var wins = 0;
 var losses = 0;
-var tries = 9;
-var guesses = [];
+var cpuChoice;
+// var tries = 9;
+// var guesses = [];
 
-var cpuChoice = letterBox[Math.floor(Math.random() * letterBox.length)];
+
  console.log(cpuChoice);
 
 
@@ -26,8 +27,10 @@ document.onkeyup = function(event) {
     if(lowerPcGuess === cpuChoice) {
         wins++;
         console.log(wins); 
-        var cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
-        console.log(letterBox[cpuChoice]);
+        startGame()
+
+        // cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
+        // console.log(letterBox[cpuChoice]);
  
 
                   
@@ -40,9 +43,10 @@ document.onkeyup = function(event) {
 
     if(tries === 0) {
         losses++;
-        var cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
-        console.log(letterBox[cpuChoice]);
-        tries = 9;
+        startGame()
+        // cpuChoice = Math.floor(Math.random(letterBox) * letterBox.length);
+        // console.log(letterBox[cpuChoice]);
+        // tries = 9;
 
     }
     winText.textContent = "Wins: " + wins;
@@ -55,3 +59,11 @@ winText.textContent = "Wins: " + wins;
 lossText.textContent = "Losses: " + losses;
 triesText.textContent = "Attempts: " + tries;
 guessText.textContent = "Guesses you have already made: " + guesses;
+
+function startGame() {
+    cpuChoice = letterBox[Math.floor(Math.random() * letterBox.length)];
+    tries = 9;
+    guesses = []
+}
+
+startGame()
